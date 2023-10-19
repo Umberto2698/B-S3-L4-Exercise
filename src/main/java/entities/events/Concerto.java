@@ -31,7 +31,7 @@ public class Concerto extends Evento {
         return "Concerto{" +
                 "genere=" + genere +
                 ", inStreaming=" + inStreaming +
-                '}';
+                "} " + super.toString();
     }
 
     public Genere getGenere() {

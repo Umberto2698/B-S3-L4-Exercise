@@ -31,11 +31,11 @@ public class Application {
 //        ev.save(c2);
 
 
-//        ev.getConcertiInStreaming(true).forEach(System.out::println);
-//        ev.getConcertiPerGenere(Genere.ROCK).forEach(System.out::println);
+     ev.getConcertiInStreaming(true).forEach(System.out::println);
+//      ev.getConcertiPerGenere(Genere.ROCK).forEach(System.out::println);
 
-        ev.getPartiteVinteInCasa("Milan").forEach(System.out::println);
-        ev.getPartiteVinteInTrasferta("Juve").forEach(System.out::println);
+//        ev.getPartiteVinteInCasa("Milan").forEach(System.out::println);
+//        ev.getPartiteVinteInTrasferta("Juve").forEach(System.out::println);
 
 
         emf.close();

@@ -47,10 +47,10 @@ public class EventoDAO {
         }}
 
     public List<Concerto> getConcertiInStreaming(boolean b){
-//        SELECT c FROM Concerto c INNER JOIN Evento e ON c.id = e.id WHERE c.inSteaming = true
         TypedQuery<Concerto> getConcerti;
         if(b){
-            getConcerti = em.createQuery("SELECT c FROM Concerto c WHERE c.inStreaming = true", Concerto.class);
+          getConcerti = em.createQuery("SELECT c FROM Concerto c WHERE c.inStreaming = :b", Concerto.class);
+          getConcerti.setParameter("b",b);
         }else{
             getConcerti = em.createQuery("SELECT c FROM Concerto c WHERE c.inStreaming = false", Concerto.class);
         }
@@ -58,24 +58,9 @@ public class EventoDAO {
     }
 
     public List<Concerto> getConcertiPerGenere(Genere genere){
-        List<Concerto> concerti=new ArrayList<>();
-        switch (genere){
-            case POP -> {
-                TypedQuery<Concerto> getConcerti = em.createQuery("SELECT c FROM Concerto c WHERE c.genere LIKE POP", Concerto.class);
-                concerti= getConcerti.getResultList();
-            }
-            case ROCK -> {
-                TypedQuery<Concerto> getConcerti = em.createQuery("SELECT c FROM Concerto c WHERE c.genere LIKE ROCK", Concerto.class);
-                concerti= getConcerti.getResultList();
-
-            }
-            case CLASSICO -> {
-                TypedQuery<Concerto> getConcerti = em.createQuery("SELECT c FROM Concerto c WHERE c.genere LIKE CLASSICO", Concerto.class);
-                concerti= getConcerti.getResultList();
-
-            }
-        }
-        return concerti;
+                TypedQuery<Concerto> getConcerti = em.createQuery("SELECT c FROM Concerto c WHERE c.genere LIKE :genere", Concerto.class);
+                getConcerti.setParameter("genere",genere);
+        return getConcerti.getResultList();
     }
 
     public List<PartitaDiCalcio> getPartiteVinteInCasa(String homeTeam){
