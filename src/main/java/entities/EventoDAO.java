@@ -1,6 +1,7 @@
 package entities;
 
 import entities.events.Concerto;
+import entities.events.PartitaDiCalcio;
 import enums.Genere;
 
 import javax.persistence.EntityManager;
@@ -76,4 +77,22 @@ public class EventoDAO {
         }
         return concerti;
     }
+
+    public List<PartitaDiCalcio> getPartiteVinteInCasa(String homeTeam){
+        TypedQuery<PartitaDiCalcio> getPartiteVinteInCasa =em.createNamedQuery("getPartiteVinteInCasa", PartitaDiCalcio.class);
+        if(getPartiteVinteInCasa.getResultList().isEmpty()){
+            System.out.println("Nessuna partita vinta in casa");
+        }
+        return getPartiteVinteInCasa.getResultList();
+    }
+
+    public List<PartitaDiCalcio> getPartiteVinteInTrasferta(String homeTeam){
+        TypedQuery<PartitaDiCalcio> getPartiteVinteInTrasferta =em.createNamedQuery("getPartiteVinteInTrasferta", PartitaDiCalcio.class);
+        if(getPartiteVinteInTrasferta.getResultList().isEmpty()){
+            System.out.println("Nessuna partita vinta in trasferta");
+        }
+        return getPartiteVinteInTrasferta.getResultList();
+    }
+
+
 }

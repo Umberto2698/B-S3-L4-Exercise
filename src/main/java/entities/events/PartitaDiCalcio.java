@@ -9,6 +9,8 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@NamedQuery(name = "getPartiteVinteInCasa", query = "SELECT p FROM PartitaDiCalcio p WHERE LOWER(p.winningTeam) LIKE LOWER(homeTeam) AND LOWER(p.homeTeam) LIKE LOWER(homeTeam)")
+@NamedQuery(name = "getPartiteVinteInTrasferta",query = "SELECT p FROM PartitaDiCalcio p WHERE LOWER(p.winningTeam) LIKE LOWER(homeTeam) AND LOWER(p.foreignTeam) LIKE LOWER(homeTeam)")
 public class PartitaDiCalcio extends Evento {
     @Column(name = "home_team")
     private String homeTeam;
