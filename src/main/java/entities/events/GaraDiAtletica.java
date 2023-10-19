@@ -26,5 +26,19 @@ public class GaraDiAtletica extends Evento {
         this.vincitore = vincitore;
     }
 
+    @Override
+    public String toString() {
+        return "GaraDiAtletica{" +
+                "atleti=" + atleti +
+                ", vincitore=" + vincitore +
+                '}';
+    }
 
+    public Set<Atleta> getAtleti() {
+        return atleti;
+    }
+
+    public Atleta getVincitore() {
+        return vincitore;
+    }
 }
