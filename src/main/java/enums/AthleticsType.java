@@ -1,0 +1,11 @@
+package enums;
+
+public enum AthleticsType {
+    CORSACAMPESTRE,
+    CORSASUSTRADA,
+    CORSAINMONTAGNA,
+    LANCIODELPESO,
+    LANCIODELGIAVELLOTTO,
+    SALTOINLUNGO,
+    SALTOINALTO
+}

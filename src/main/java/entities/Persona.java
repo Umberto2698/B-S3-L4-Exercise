@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
